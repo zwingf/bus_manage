@@ -1,4 +1,4 @@
-package com.bus_manage.dal.dao;
+package com.ics.bus_manage.dal.dao;
 
 /**
  * Created by wing on 2017/7/17.

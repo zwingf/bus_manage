@@ -1,4 +1,4 @@
-package com.bus_manage.biz.impl;
+package com.ics.bus_manage.biz.impl;
 
 /**
  * Created by wing on 2017/7/17.
