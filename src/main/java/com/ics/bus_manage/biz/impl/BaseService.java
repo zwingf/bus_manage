@@ -1,7 +1,6 @@
 package com.ics.bus_manage.biz.impl;
 
 import com.ics.bus_manage.dal.dao.IBaseDao;
-import com.ics.bus_manage.dal.entity.EmpEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
@@ -18,9 +17,9 @@ public class BaseService<T> {
         return baseDao.getList(t);
     }
 
-    public void add(EmpEntity empEntity) {}
+    public void add(T t) {}
 
-    public void update(EmpEntity empEntity) {}
+    public void update(T t) {}
 
     public void deleteById(Long id) {}
 
