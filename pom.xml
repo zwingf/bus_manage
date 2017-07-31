@@ -10,14 +10,12 @@
   <properties>
     <junit.version>4.12</junit.version>
     <spring.version>4.2.4.RELEASE</spring.version>
-    <mybatis.version>3.2.8</mybatis.version>
-    <mybatis.spring.version>1.2.2</mybatis.spring.version>
+    <hibernate.version>5.2.10.Final</hibernate.version>
     <slf4j.version>1.7.12</slf4j.version>
     <log4j.version>1.2.17</log4j.version>
     <jstl.version>1.2</jstl.version>
-    <mysql.version>5.1.32</mysql.version>
-    <druid.version>1.0.9</druid.version>
     <jsp-api.version>2.0</jsp-api.version>
+    <jackson.version>2.4.2</jackson.version>
   </properties>
 
   <dependencies>
@@ -29,40 +27,38 @@
     </dependency>
     <!-- 日志适配器 -->
     <dependency>
+      <groupId>log4j</groupId>
+      <artifactId>log4j</artifactId>
+      <version>${log4j.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>slf4j-api</artifactId>
+      <version>${slf4j.version}</version>
+    </dependency>
+    <dependency>
       <groupId>org.slf4j</groupId>
       <artifactId>slf4j-log4j12</artifactId>
       <version>${slf4j.version}</version>
     </dependency>
-    <!-- 日志实现 -->
-    <!--<dependency>-->
-    <!--<groupId>org.apache.logging.log4j</groupId>-->
-    <!--<artifactId>log4j-core</artifactId>-->
-    <!--<version>2.5</version>-->
-    <!--</dependency>-->
 
-    <!-- Mybatis -->
+    <!-- Hibernate -->
     <dependency>
-      <groupId>org.mybatis</groupId>
-      <artifactId>mybatis</artifactId>
-      <version>${mybatis.version}</version>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-orm</artifactId>
+      <version>${spring.version}</version>
     </dependency>
     <dependency>
-      <groupId>org.mybatis</groupId>
-      <artifactId>mybatis-spring</artifactId>
-      <version>${mybatis.spring.version}</version>
+      <groupId>org.hibernate</groupId>
+      <artifactId>hibernate-core</artifactId>
+      <version>${hibernate.version}</version>
     </dependency>
 
-    <!-- MySql -->
+    <!--数据库-->
     <dependency>
-      <groupId>mysql</groupId>
-      <artifactId>mysql-connector-java</artifactId>
-      <version>${mysql.version}</version>
-    </dependency>
-    <!-- 连接池 -->
-    <dependency>
-      <groupId>com.alibaba</groupId>
-      <artifactId>druid</artifactId>
-      <version>${druid.version}</version>
+      <groupId>com.oracle</groupId>
+      <artifactId>ojdbc7</artifactId>
+      <version>12.1.0.2</version>
     </dependency>
 
     <!-- Spring依赖 -->
@@ -77,6 +73,12 @@
       <artifactId>spring-jdbc</artifactId>
       <version>${spring.version}</version>
     </dependency>
+   <!-- Jackson Json处理工具包 -->
+   <dependency>
+      <groupId>com.fasterxml.jackson.core</groupId>
+      <artifactId>jackson-databind</artifactId>
+      <version>${jackson.version}</version>
+   </dependency>
     <!--扩展-->
     <dependency>
       <groupId>org.springframework</groupId>
@@ -116,6 +118,20 @@
   <build>
     <finalName>bus_manage</finalName>
     <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-resources-plugin</artifactId>
+        <version>2.5</version>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>2.3.2</version>
+        <configuration>
+          <source>1.8</source>
+          <target>1.8</target>
+        </configuration>
+      </plugin>
       <plugin>
         <groupId>org.eclipse.jetty</groupId>
         <artifactId>jetty-maven-plugin</artifactId>
