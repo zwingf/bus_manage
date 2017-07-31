@@ -1,13 +1,13 @@
-package com.ics.bus_manage.dal.dao;
+package com.ics.bus_manage.biz;
 
 import java.util.List;
 
 /**
- * Created by wing on 2017/7/30.
+ * Created by wing on 2017/7/31.
  */
-public interface IBaseDao<T> {
+public interface IBaseService<T> {
 
-    List<T> getList(T t);
+    public List<T> getList(T t);
 
     void add(T t);
 
