@@ -9,7 +9,7 @@ import javax.persistence.Table;
  * 关联表
  * Created by wing on 2017/8/1.
  */
-@Entity
+//@Entity
 @Table(name = "MENU_ROLE_RELATION", schema = "SCOTT", catalog = "")
 public class MenuRoleRelationEntity {
     private Long menuId;    //菜单id

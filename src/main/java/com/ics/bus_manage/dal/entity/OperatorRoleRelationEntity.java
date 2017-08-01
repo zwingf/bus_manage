@@ -9,7 +9,7 @@ import javax.persistence.Table;
  * 关联表
  * Created by wing on 2017/8/1.
  */
-@Entity
+//@Entity
 @Table(name = "OPERATOR_ROLE_RELATION", schema = "SCOTT", catalog = "")
 public class OperatorRoleRelationEntity {
     private Long operatorId;    //操作员id
