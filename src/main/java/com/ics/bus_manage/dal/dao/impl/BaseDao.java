@@ -46,9 +46,9 @@ public class BaseDao<T> extends HibernateDaoSupport{
      */
     public List<T> getList(T t){
 
-        DetachedCriteria dc = getDetachedCriteria(t);
+    DetachedCriteria dc = getDetachedCriteria(t);
         return (List<T>) getHibernateTemplate().findByCriteria(dc);
-    }
+}
 
     public void add(T t){
         getHibernateTemplate().save(t);

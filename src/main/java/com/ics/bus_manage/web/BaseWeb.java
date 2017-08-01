@@ -10,6 +10,7 @@ import java.util.List;
 
 /**
  * Created by wing on 2017/7/31.
+ *
  */
 public class BaseWeb<T> {
 
