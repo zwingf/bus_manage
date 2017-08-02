@@ -7,7 +7,7 @@ import java.util.List;
  */
 public interface IBaseService<T> {
 
-    public List<T> getList(T t);
+    List<T> getList(T t);
 
     void add(T t);
 
