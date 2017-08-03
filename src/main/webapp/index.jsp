@@ -10,8 +10,11 @@
 <br>
 <h2>Hello World!</h2>
 
-请输入查询ID：<input type="text" name="id" id="id">
-<a href="<%=request.getContextPath()%>/demo/selectById.do?id='document'"> 查询</a>
-${entity}
+<%--请输入查询ID：<input type="text" name="id" id="id">--%>
+<%--<a href="<%=request.getContextPath()%>/demo/selectById.do?id='document'"> 查询</a>--%>
+<%--${entity}--%>
+<hr/>
+<a href="<%=request.getContextPath()%>/recharge/selectById.do"> 查询</a>
+${t}
 </body>
 </html>
