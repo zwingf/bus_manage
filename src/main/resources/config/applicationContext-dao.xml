@@ -29,7 +29,7 @@
             </props>
 		</property>
 		<property name="packagesToScan">
-			<value>com.ics.bus_manage.dal.entity.*</value>
+			<value>com.ics.bus_manage.dal.entity</value>
 		</property>
 	</bean>
 </beans>
