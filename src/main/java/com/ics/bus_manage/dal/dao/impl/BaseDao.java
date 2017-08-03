@@ -31,24 +31,34 @@ public class BaseDao<T> extends HibernateDaoSupport{
 
     /**]
      *
-     * 自调用函数，不用理会。
-     * @param t
+     * 自调用函数，设置条件查询子类重写该方法即可。
+     * @param
      * @return
      */
-    public DetachedCriteria getDetachedCriteria(T t){
+    public DetachedCriteria getDetachedCriteria(T t1,T t2,Object obj){
+        return null;
+    }
+    public DetachedCriteria getDetachedCriteria(Object obj){
         return null;
     }
 
     /**
      * 条件查询列表
-     * @param t
+     * @param
      * @return
      */
-    public List<T> getList(T t){
+    public List<T> getList(){
+        return getHibernateTemplate().loadAll(entityClass);
+    }
+    public List<T> getList(T t1,T t2,Object obj){
+        DetachedCriteria dc = getDetachedCriteria(t1,t2,obj);
+            return (List<T>) getHibernateTemplate().findByCriteria(dc);
+    }
+    public List<T> getList(Object obj){
+        DetachedCriteria dc = getDetachedCriteria(obj);
+            return (List<T>) getHibernateTemplate().findByCriteria(dc);
+    }
 
-    DetachedCriteria dc = getDetachedCriteria(t);
-        return (List<T>) getHibernateTemplate().findByCriteria(dc);
-}
 
     public void add(T t){
         getHibernateTemplate().save(t);

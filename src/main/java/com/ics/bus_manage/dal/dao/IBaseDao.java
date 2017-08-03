@@ -1,5 +1,6 @@
 package com.ics.bus_manage.dal.dao;
 
+
 import java.util.List;
 
 /**
@@ -7,7 +8,11 @@ import java.util.List;
  */
 public interface IBaseDao<T> {
 
-    List<T> getList(T t);
+    List<T> getList();
+
+    List<T> getList(T t1,T t2,Object obj);
+
+    List<T> getList(Object obj);
 
     void add(T t);
 

@@ -17,10 +17,10 @@ public class BaseWeb<T> {
     @Autowired
     private IBaseService<T> baseService;
 
-    @RequestMapping("/getList")
+    @RequestMapping("/getListAll")
     @ResponseBody
-    public List<T> getList(T t) {
-        return baseService.getList(t);
+    public List<T> getList() {
+        return baseService.getList();
     }
 
     @RequestMapping("/add")

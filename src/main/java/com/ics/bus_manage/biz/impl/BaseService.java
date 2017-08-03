@@ -17,6 +17,14 @@ public class BaseService<T> {
         return baseDao.getList(t);
     }
 
+    public List<T> getList(T t1,T t2, Object obj) {
+        return baseDao.getList(t1,t2,obj);
+    }
+
+    public List<T> getList() {
+        return baseDao.getList();
+    }
+
     public void add(T t) {}
 
     public void update(T t) {}
