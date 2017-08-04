@@ -13,8 +13,8 @@ public class BaseService<T> {
     @Autowired
     private IBaseDao<T> baseDao;
 
-    public List<T> getList(T t) {
-        return baseDao.getList(t);
+    public List<T> getList(Object obj) {
+        return baseDao.getList(obj);
     }
 
     public List<T> getList(T t1,T t2, Object obj) {
@@ -25,11 +25,17 @@ public class BaseService<T> {
         return baseDao.getList();
     }
 
-    public void add(T t) {}
+    public void add(T t) {
+        baseDao.add(t);
+    }
 
-    public void update(T t) {}
+    public void update(T t) {
+        baseDao.update(t);
+    }
 
-    public void deleteById(Long id) {}
+    public void deleteById(Long id) {
+        baseDao.deleteById(id);
+    }
 
     public T selectById(Long id) {
         return baseDao.selectById(id);
