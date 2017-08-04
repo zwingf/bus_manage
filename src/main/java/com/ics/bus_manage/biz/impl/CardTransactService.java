@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * 卡片办理Service
@@ -15,12 +16,4 @@ import java.util.List;
 @Service
 public class CardTransactService extends BaseService<UserApplyRecordsEntity> implements ICardTransactService {
 
-    @Autowired
-    private ICardTransactDao cardTransactDao;
-
-    @Override
-    public List getList() {
-
-        return cardTransactDao.getList();
-    }
 }

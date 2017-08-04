@@ -1,7 +1,7 @@
 package com.ics.bus_manage.dal.entity;
 
 import javax.persistence.*;
-import java.sql.Time;
+import java.util.Date;
 
 /**
  * 用户办卡记录表
@@ -20,7 +20,7 @@ public class UserApplyRecordsEntity {
     private String pic1;		//	图片1（证件照）
     private String pic2;		//	图片2（其他图片）
     private String pic3;		//	图片3（备用）
-    private Time applyTime;		//	申请时间
+    private Date applyTime;		//	申请时间
     private long applyStatus;		//	进度状态
     private long applyType;		//	操作类型（1申领2补办）
     private String operator;		//	审核员
@@ -129,11 +129,11 @@ public class UserApplyRecordsEntity {
 
     @Basic
     @Column(name = "APPLY_TIME")
-    public Time getApplyTime() {
+    public Date getApplyTime() {
         return applyTime;
     }
 
-    public void setApplyTime(Time applyTime) {
+    public void setApplyTime(Date applyTime) {
         this.applyTime = applyTime;
     }
 
