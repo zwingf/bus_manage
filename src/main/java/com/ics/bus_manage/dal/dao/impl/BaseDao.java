@@ -1,7 +1,10 @@
 package com.ics.bus_manage.dal.dao.impl;
 
+import org.hibernate.HibernateException;
+import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.criterion.DetachedCriteria;
+import org.springframework.orm.hibernate5.HibernateCallback;
 import org.springframework.orm.hibernate5.support.HibernateDaoSupport;
 
 import javax.annotation.Resource;
@@ -75,5 +78,17 @@ public class BaseDao<T> extends HibernateDaoSupport{
 
     public T selectById(Long id){
         return getHibernateTemplate().get(entityClass, id);
+    }
+
+    //返回条数的方法
+    public long selectCountByTime(final String hql) {
+        Long totalRow = (Long)getHibernateTemplate().execute(new HibernateCallback(){
+            public Object doInHibernate(Session session)
+                    throws HibernateException {
+                Long count = (Long)session.createQuery("select count(1) " + hql).uniqueResult();
+                return count;
+            }
+        });
+        return totalRow;
     }
 }
