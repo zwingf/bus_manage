@@ -10,7 +10,7 @@ public interface IBaseDao<T> {
 
     List<T> getList();
 
-    List<T> getList(T t1,T t2,Object obj);
+    List<T> getList(T t1, T t2, Object obj);
 
     List<T> getList(Object obj);
 
@@ -21,4 +21,6 @@ public interface IBaseDao<T> {
     void deleteById(Long id);
 
     T selectById(Long id);
+
+    long selectCountByTime(final String hql);
 }
