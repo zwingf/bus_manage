@@ -1,5 +1,7 @@
 package com.ics.bus_manage.dal.entity;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import javax.persistence.*;
 import java.util.Date;
 
@@ -20,6 +22,7 @@ public class UserApplyRecordsEntity {
     private String pic1;		//	图片1（证件照）
     private String pic2;		//	图片2（其他图片）
     private String pic3;		//	图片3（备用）
+    @JsonFormat(timezone = "GMT+8", pattern = "yyyy-MM-dd HH:mm:ss")
     private Date applyTime;		//	申请时间
     private long applyStatus;		//	进度状态
     private long applyType;		//	操作类型（1申领2补办）
