@@ -6,6 +6,7 @@ import com.ics.bus_manage.dal.entity.UserApplyRecordsEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.text.ParseException;
 import java.util.List;
 import java.util.Map;
 
@@ -16,4 +17,12 @@ import java.util.Map;
 @Service
 public class CardTransactService extends BaseService<UserApplyRecordsEntity> implements ICardTransactService {
 
+    @Autowired
+    private ICardTransactDao dao;
+
+    @Override
+    public List<UserApplyRecordsEntity> getIdList(Map map){
+
+        return dao.getIdList(map) ;
+    }
 }
