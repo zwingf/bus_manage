@@ -57,4 +57,50 @@ public class UserAccountService extends BaseService<UserAccountEntity> implement
         return fistPageMap;
     }
 
+    @Override
+    public List<UserAccountEntity> selectAllRegisterUser() {
+        StringBuffer sb = new StringBuffer();
+        sb.append("from UserAccountEntity");
+        String hql = sb.toString();
+        return iUserAccountDao.selectAllRegisterUser(hql);
+    }
+
+    @Override
+    public List<UserAccountEntity> selectRegisterUserByCityCode(String citycode,String phone) {
+        StringBuffer sb = new StringBuffer();
+        sb.append("from UserAccountEntity where cityCode = ? and phone = ?");
+        String hql = sb.toString();
+        return iUserAccountDao.selectRegisterUserByCityCode(hql,citycode,phone);
+    }
+
+    @Override
+    public Object selectCountByRegisterDate(Integer selectType) {
+        StringBuffer sb = new StringBuffer("from UserAccountEntity ");
+        StringBuffer sbs = new StringBuffer("");
+        Integer dateType = null;
+        if (0 == selectType) {
+            sbs.append("select count(*),to_char(APPLY_TIME,'yyyy-mm-dd') from (select * from USER_APPLY_RECORDS where APPLY_TIME > sysdate - (to_char(sysdate-1,'D'))) GROUP BY to_char(APPLY_TIME,'yyyy-mm-dd')");
+            //create global temporary table USER_LS on commit delete rows as select * from USER_APPLY_RECORDS where APPLY_TIME > sysdate - (to_char(sysdate-1,'D'))
+            //select count(*),to_char(APPLY_TIME,'yyyy-mm-dd') from (select * from USER_APPLY_RECORDS where APPLY_TIME > sysdate - (to_char(sysdate-1,'D'))) GROUP BY to_char(APPLY_TIME,'yyyy-mm-dd')
+            dateType=0;
+            String hql = sbs.toString();
+            Object obj = iUserAccountDao.selectCountByRegisterDate(hql,dateType);
+            return obj;
+        }
+        if (1 == selectType) {
+            sb.append("group by to_char(registerDate,'MM')");
+            dateType=1;
+        }
+        if (2 == selectType) {
+            sb.append("group by to_char(registerDate,'yyyy')");
+            dateType=2;
+        }
+        if (3 == selectType) {
+            sb.append("");
+            dateType=3;
+        }
+        String hql = sb.toString();
+        Object obj = iUserAccountDao.selectCountByRegisterDate(hql,dateType);
+        return obj;
+    }
 }
