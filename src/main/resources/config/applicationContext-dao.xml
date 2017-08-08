@@ -23,7 +23,7 @@
 				<prop key="hibernate.dialect">org.hibernate.dialect.Oracle10gDialect</prop>
 				<prop key="hibernate.show_sql">true</prop>
 				<prop key="hibernate.format_sql">true</prop>
-				<prop key="hibernate.hbm2ddl.auto">update</prop>
+				<prop key="hibernate.hbm2ddl.auto">validate</prop>
                 <prop key="hibernate.connection.url">jdbc:oracle:thin:@192.168.102.4:1521:orcl</prop>
                 <prop key="hibernate.connection.driver_class">oracle.jdbc.OracleDriver</prop>
             </props>
