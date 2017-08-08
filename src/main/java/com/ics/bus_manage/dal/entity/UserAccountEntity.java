@@ -143,7 +143,7 @@ public class UserAccountEntity {
         return clsDate;
     }
 
-    public void setClsDate(Time clsDate) {
+    public void setClsDate(Date clsDate) {
         this.clsDate = clsDate;
     }
 
@@ -153,7 +153,7 @@ public class UserAccountEntity {
         return registerDate;
     }
 
-    public void setRegisterDate(Time registerDate) {
+    public void setRegisterDate(Date registerDate) {
         this.registerDate = registerDate;
     }
 
@@ -213,7 +213,7 @@ public class UserAccountEntity {
         return userLockTime;
     }
 
-    public void setUserLockTime(Time userLockTime) {
+    public void setUserLockTime(Date userLockTime) {
         this.userLockTime = userLockTime;
     }
 
@@ -223,7 +223,7 @@ public class UserAccountEntity {
         return userPayLockTime;
     }
 
-    public void setUserPayLockTime(Time userPayLockTime) {
+    public void setUserPayLockTime(Date userPayLockTime) {
         this.userPayLockTime = userPayLockTime;
     }
 

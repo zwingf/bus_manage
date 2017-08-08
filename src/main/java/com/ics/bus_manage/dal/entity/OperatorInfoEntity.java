@@ -82,7 +82,7 @@ public class OperatorInfoEntity {
         return createDate;
     }
 
-    public void setCreateDate(Time createDate) {
+    public void setCreateDate(Date createDate) {
         this.createDate = createDate;
     }
 
@@ -92,7 +92,7 @@ public class OperatorInfoEntity {
         return modifyDate;
     }
 
-    public void setModifyDate(Time modifyDate) {
+    public void setModifyDate(Date modifyDate) {
         this.modifyDate = modifyDate;
     }
 
@@ -102,7 +102,7 @@ public class OperatorInfoEntity {
         return lastLogin;
     }
 
-    public void setLastLogin(Time lastLogin) {
+    public void setLastLogin(Date lastLogin) {
         this.lastLogin = lastLogin;
     }
 

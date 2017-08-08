@@ -92,7 +92,7 @@ public class MenuInfoEntity {
         return createDate;
     }
 
-    public void setCreateDate(Time createDate) {
+    public void setCreateDate(Date createDate) {
         this.createDate = createDate;
     }
 
