@@ -114,6 +114,12 @@
       <version>${jsp-api.version}</version>
       <scope>provided</scope>
     </dependency>
+    <!-- apahce poi -->
+    <dependency>
+      <groupId>org.apache.poi</groupId>
+      <artifactId>poi</artifactId>
+      <version>3.7</version>
+    </dependency>
   </dependencies>
   <build>
     <finalName>bus_manage</finalName>
