@@ -1,7 +1,10 @@
 package com.ics.bus_manage.dal.entity;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import javax.persistence.*;
 import java.sql.Time;
+import java.util.Date;
 
 /**
  * 管理员信息表
@@ -15,9 +18,12 @@ public class OperatorInfoEntity {
     private String operatortPwd;		//密码
     private String name;		//姓名
     private String phone;		//用户（手机号）
-    private Time createDate;		//创建日期
-    private Time modifyDate;		//修改日期
-    private Time lastLogin;		//最近一次登陆
+    @JsonFormat(timezone = "GMT+8", pattern = "yyyy-MM-dd HH:mm:ss")
+    private Date createDate;		//创建日期
+    @JsonFormat(timezone = "GMT+8", pattern = "yyyy-MM-dd HH:mm:ss")
+    private Date modifyDate;		//修改日期
+    @JsonFormat(timezone = "GMT+8", pattern = "yyyy-MM-dd HH:mm:ss")
+    private Date lastLogin;		//最近一次登陆
     private String cityCode;		//城市代码
 
     @Id
@@ -72,7 +78,7 @@ public class OperatorInfoEntity {
 
     @Basic
     @Column(name = "CREATE_DATE")
-    public Time getCreateDate() {
+    public Date getCreateDate() {
         return createDate;
     }
 
@@ -82,7 +88,7 @@ public class OperatorInfoEntity {
 
     @Basic
     @Column(name = "MODIFY_DATE")
-    public Time getModifyDate() {
+    public Date getModifyDate() {
         return modifyDate;
     }
 
@@ -92,7 +98,7 @@ public class OperatorInfoEntity {
 
     @Basic
     @Column(name = "LAST_LOGIN")
-    public Time getLastLogin() {
+    public Date getLastLogin() {
         return lastLogin;
     }
 

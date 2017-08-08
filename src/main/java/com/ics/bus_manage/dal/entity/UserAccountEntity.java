@@ -1,7 +1,10 @@
 package com.ics.bus_manage.dal.entity;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import javax.persistence.*;
 import java.sql.Time;
+import java.util.Date;
 
 /**
  * 用户信息
@@ -20,15 +23,19 @@ public class UserAccountEntity {
     private String cityCode;		//城市代码
     private Long userStatus;		//
     private Long clsOperId;		//
-    private Time clsDate;		//
-    private Time registerDate;		//
+    @JsonFormat(timezone = "GMT+8", pattern = "yyyy-MM-dd HH:mm:ss")
+    private Date clsDate;		//
+    @JsonFormat(timezone = "GMT+8", pattern = "yyyy-MM-dd HH:mm:ss")
+    private Date registerDate;		//
     private String note;		//
     private String userPayPwd;		//交易密码
     private String isManager;		//是否管理人员
     private Long userPwdErrNum;		//登录密码错误次数
     private Long userPayPwdErrNum;		//交易密码错误次数
-    private Time userLockTime;		//登录密码锁定时间
-    private Time userPayLockTime;		//交易密码锁定时间
+    @JsonFormat(timezone = "GMT+8", pattern = "yyyy-MM-dd HH:mm:ss")
+    private Date userLockTime;		//登录密码锁定时间
+    @JsonFormat(timezone = "GMT+8", pattern = "yyyy-MM-dd HH:mm:ss")
+    private Date userPayLockTime;		//交易密码锁定时间
 
     @Id
     @Column(name = "USER_ID")
@@ -132,7 +139,7 @@ public class UserAccountEntity {
 
     @Basic
     @Column(name = "CLS_DATE")
-    public Time getClsDate() {
+    public Date getClsDate() {
         return clsDate;
     }
 
@@ -142,7 +149,7 @@ public class UserAccountEntity {
 
     @Basic
     @Column(name = "REGISTER_DATE")
-    public Time getRegisterDate() {
+    public Date getRegisterDate() {
         return registerDate;
     }
 
@@ -202,7 +209,7 @@ public class UserAccountEntity {
 
     @Basic
     @Column(name = "USER_LOCK_TIME")
-    public Time getUserLockTime() {
+    public Date getUserLockTime() {
         return userLockTime;
     }
 
@@ -212,7 +219,7 @@ public class UserAccountEntity {
 
     @Basic
     @Column(name = "USER_PAY_LOCK_TIME")
-    public Time getUserPayLockTime() {
+    public Date getUserPayLockTime() {
         return userPayLockTime;
     }
 

@@ -1,7 +1,10 @@
 package com.ics.bus_manage.dal.entity;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import javax.persistence.*;
 import java.sql.Time;
+import java.util.Date;
 
 /**
  * 角色表
@@ -13,7 +16,8 @@ public class RoleInfoEntity {
     private long roleId;		//角色id
     private String roleName;		//角色名字
     private long roleStatus;		//角色状态
-    private Time createDate;		//创建日期
+    @JsonFormat(timezone = "GMT+8", pattern = "yyyy-MM-dd HH:mm:ss")
+    private Date createDate;		//创建日期
     private Long createOperatorId;		//操作员id
 
     @Id
@@ -48,11 +52,11 @@ public class RoleInfoEntity {
 
     @Basic
     @Column(name = "CREATE_DATE")
-    public Time getCreateDate() {
+    public Date getCreateDate() {
         return createDate;
     }
 
-    public void setCreateDate(Time createDate) {
+    public void setCreateDate(Date createDate) {
         this.createDate = createDate;
     }
 

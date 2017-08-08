@@ -1,7 +1,10 @@
 package com.ics.bus_manage.dal.entity;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import javax.persistence.*;
 import java.sql.Time;
+import java.util.Date;
 
 /**
  * 菜单表
@@ -13,14 +16,15 @@ public class MenuInfoEntity {
     private long menuId;		//菜单id
     private String menuName;		//菜单名称
     private String url;		//url
-    private long menuStatus;		//菜单状态
-    private Long menuOrder;		//排序
+    private long menuStatus;		//菜单状态（启用、注销）
+    private Long menuOrder;		//排序 (查询的时候按照这个排序)
     private Long createOperatorId;		//操作员id
-    private Time createDate;		//创建日期
+    @JsonFormat(timezone = "GMT+8", pattern = "yyyy-MM-dd HH:mm:ss")
+    private Date createDate;		//创建日期
     private Long menuLevel;		//菜单等级
     private Long parentMenuId;		//父菜单id
-    private String menuDesc;		//菜单描述
-    private Long menuType;		//菜单类型
+    private String menuDesc;		//菜单描述（该菜单做什么事情）
+    private Long menuType;		//菜单类型（浏览、编辑、其他）
 
     @Id
     @Column(name = "MENU_ID")
@@ -84,7 +88,7 @@ public class MenuInfoEntity {
 
     @Basic
     @Column(name = "CREATE_DATE")
-    public Time getCreateDate() {
+    public Date getCreateDate() {
         return createDate;
     }
 
