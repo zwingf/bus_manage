@@ -8,6 +8,7 @@ import com.ics.bus_manage.dal.entity.RoleInfoEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -18,9 +19,6 @@ public class RoleService extends BaseService<RoleInfoEntity> implements IRoleSer
     @Autowired
     private IRoleDao iRoleDao;
 
-    @Autowired
-    private IPowerDao iPowerDao;
-
     @Override
     public void deleteAll(String ids) {
         // 将获取到的数据集进行处理
@@ -29,5 +27,13 @@ public class RoleService extends BaseService<RoleInfoEntity> implements IRoleSer
         for (String id : idss) {
             iRoleDao.deleteById(Long.parseLong(id));
         }
+    }
+
+    @Override
+    public List<RoleInfoEntity> RoleSelectByCondation(Date createDate, String roleName) {
+        StringBuffer sb =new StringBuffer("from RoleInfoEntity");
+        sb.append("where roleName like ? or createDate like ?");
+        String hql = sb.toString();
+        return iRoleDao.RoleSelectByCondation(hql,createDate,roleName);
     }
 }

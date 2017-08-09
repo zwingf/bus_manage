@@ -53,7 +53,7 @@ public class UserAccountWeb {
         return registerUserList;
     }
 
-    //根据日期（周、月、年统计新增用户--<新增管理员>和注册用户--<app注册>的数据）
+    //根据日期（周、月、年统计新增用户--<新增注册用户>和注册用户--<app注册>的数据）
     @RequestMapping("/selectCountByRegisterDate.do")
     @ResponseBody
     public Object selectCountByRegisterDate(Integer registerDate) {

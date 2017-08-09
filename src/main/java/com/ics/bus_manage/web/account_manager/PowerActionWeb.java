@@ -1,6 +1,7 @@
 package com.ics.bus_manage.web.account_manager;
 
 import com.ics.bus_manage.biz.IPowerService;
+import com.ics.bus_manage.biz.IRolePowerService;
 import com.ics.bus_manage.dal.entity.MenuInfoEntity;
 import com.ics.bus_manage.dal.entity.MenuRoleRelationEntity;
 import com.ics.bus_manage.web.BaseWeb;
@@ -22,6 +23,8 @@ public class PowerActionWeb extends BaseWeb<MenuInfoEntity> {
 
     @Autowired
     private IPowerService iPowerService;
+    @Autowired
+    private IRolePowerService iRolePowerService;
 
     //权限添加
     @RequestMapping("/PowerAdd.do")
@@ -41,6 +44,8 @@ public class PowerActionWeb extends BaseWeb<MenuInfoEntity> {
         MenuRoleRelationEntity menuRoleRelationEntity = new MenuRoleRelationEntity();
         menuRoleRelationEntity.setMenuId(menuId);
         menuRoleRelationEntity.setRoleId(roleId);
+        //将角色、权限关联关系插入到数据库
+        iRolePowerService.add(menuRoleRelationEntity);
     }
 
     //批量获取要删除的数据的id
@@ -62,7 +67,7 @@ public class PowerActionWeb extends BaseWeb<MenuInfoEntity> {
         iPowerService.update(menuInfoEntity);
     }
 
-    //权限查询
+    //角色、权限查询
     @RequestMapping("/PowerSelect.do")
     @ResponseBody
     public List<MenuInfoEntity> PowerSelect(){

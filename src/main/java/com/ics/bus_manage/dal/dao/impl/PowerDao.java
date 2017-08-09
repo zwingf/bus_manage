@@ -16,10 +16,6 @@ import java.util.List;
  */
 @Repository
 public class PowerDao extends BaseDao<MenuInfoEntity> implements IPowerDao {
-    @Override
-    public Long getCount() {
-        return null;
-    }
 
     @Override
     public MenuInfoEntity selectByCreatDate(String hql, Date date) {

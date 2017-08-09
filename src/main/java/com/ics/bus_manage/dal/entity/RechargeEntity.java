@@ -6,8 +6,8 @@ import java.sql.Time;
 /**
  * Created by yangguang on 2017/8/3.
  */
-@Entity
-@Table(name = "RECHARGE", schema = "SCOTT", catalog = "")
+/*@Entity
+@Table(name = "RECHARGE", schema = "SCOTT", catalog = "")*/
 public class RechargeEntity {
     private long id;
     private String serial;

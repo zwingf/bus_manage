@@ -8,7 +8,6 @@ import java.util.Date;
  * Created by wangtianfeng on 2017/8/4.
  */
 public interface IPowerDao extends IBaseDao<MenuInfoEntity> {
-    Long  getCount();
 
     MenuInfoEntity selectByCreatDate( String hql,Date date);
 }
