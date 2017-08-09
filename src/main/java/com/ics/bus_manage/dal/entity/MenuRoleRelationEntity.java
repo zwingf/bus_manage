@@ -1,21 +1,19 @@
 package com.ics.bus_manage.dal.entity;
 
-import javax.persistence.Basic;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.io.Serializable;
 
 /**
  * 关联表
  * Created by wing on 2017/8/1.
  */
-//@Entity
+@Entity
 @Table(name = "MENU_ROLE_RELATION", schema = "SCOTT", catalog = "")
-public class MenuRoleRelationEntity {
+public class MenuRoleRelationEntity implements Serializable {
     private Long menuId;    //菜单id
     private Long roleId;    //角色id
 
-    @Basic
+    @Id
     @Column(name = "MENU_ID")
     public Long getMenuId() {
         return menuId;
@@ -25,7 +23,7 @@ public class MenuRoleRelationEntity {
         this.menuId = menuId;
     }
 
-    @Basic
+    @Id
     @Column(name = "ROLE_ID")
     public Long getRoleId() {
         return roleId;
